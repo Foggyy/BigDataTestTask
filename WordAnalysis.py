@@ -12,7 +12,8 @@ for line in fileData:                                   # Цикл для про
     newStroka = re.sub('[\\\\:;]', ' ', newStroka)      # Регулярное выражение заменяющее ; и : на пробел
     stroka = re.split(r'\s+|,\s*', newStroka)           # Разделение строки на отдельные слова
     for word in stroka:                                 # Цикл добавляющий все слова в строке в общий список слов
-        allwords.append(word.lower())
+        if word != "" and word != " ":
+            allwords.append(word.lower())
 
 wb = xlwt.Workbook()
 ws = wb.add_sheet('A Test Sheet')
